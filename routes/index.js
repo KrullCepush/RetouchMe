@@ -1,6 +1,7 @@
 const express = require('express');
 const { sessionChecker, noSessionChecker } = require('../middleware/auth');
 const User = require('../models/user');
+const Task = require('../models/task');
 
 const router = express.Router();
 
@@ -54,8 +55,15 @@ router.route('/login')
 
 
 // route for user's dashboard
-router.get('/dashboard', sessionChecker, (req, res) => {
-  res.render('dashboard');
+router.get('/dashboard', sessionChecker, async (req, res) => {
+  const openTasks = Task.find({ status: true });
+  const hiddenTasks = Task.find({ status: true });
+  const { user } = req.session;
+  res.render('dashboard', {
+    user,
+    openTasks,
+    hiddenTasks,
+  });
 });
 
 
