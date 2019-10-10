@@ -18,6 +18,7 @@ router.route('/signup')
     try {
       const user = new User({
         username: req.body.username,
+        login: req.body.login,
         email: req.body.email,
         password: req.body.password,
       });
@@ -25,7 +26,7 @@ router.route('/signup')
       req.session.user = user;
       res.redirect('/dashboard');
     } catch (error) {
-      res.redirect('/signup');
+      res.render('signup', error);
     }
   });
 
@@ -36,15 +37,15 @@ router.route('/login')
     res.render('login');
   })
   .post(async (req, res) => {
-    const { username } = req.body;
-    const { password } = req.body;
+    const { login, password } = req.body;
 
-    const user = await User.findOne({ username });
+    const user = await User.findOne({ login });
     if (!user) {
-      res.redirect('/login');
-      // } else if (!user.validPassword(password)) {
+      const message = 'Пользователя с таим логином не существует';
+      res.render('login', message);
     } else if (user.password !== password) {
-      res.redirect('/login');
+      const message = 'Пароль введён неверно';
+      res.render('login', message);
     } else {
       req.session.user = user;
       res.redirect('/dashboard');
@@ -66,7 +67,7 @@ router.get('/dashboard', (req, res) => {
 router.get('/logout', async (req, res, next) => {
   if (req.session.user && req.cookies.user_sid) {
     try {
-      // res.clearCookie('user_sid');
+      res.clearCookie('user_sid');
       await req.session.destroy();
       res.redirect('/');
     } catch (error) {
