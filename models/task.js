@@ -6,6 +6,7 @@ const taskSchema = new mongoose.Schema({
   issuedBy: String,
   title: String,
   info: String,
+  amount: Number,
   cost: Number,
   link: String,
   retouchedLink: String,
