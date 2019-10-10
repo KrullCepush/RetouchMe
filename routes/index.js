@@ -1,20 +1,20 @@
 const express = require('express');
-const { sessionChecker } = require('../middleware/auth');
+const { sessionChecker, noSessionChecker } = require('../middleware/auth');
 const User = require('../models/user');
 
-
 const router = express.Router();
+
 // route for Home-Page
-router.get('/', sessionChecker, (req, res) => {
-  res.redirect('/login');
+router.get('/', (req, res) => {
+  res.render('index');
 });
 
 // route for user signup
 router.route('/signup')
-  .get(sessionChecker, (req, res) => {
+  .get(noSessionChecker, (req, res) => {
     res.render('signup');
   })
-  .post(async (req, res) => {
+  .post(noSessionChecker, async (req, res) => {
     try {
       const user = new User({
         username: req.body.username,
@@ -33,10 +33,10 @@ router.route('/signup')
 
 // route for user Login
 router.route('/login')
-  .get(sessionChecker, (req, res) => {
+  .get(noSessionChecker, (req, res) => {
     res.render('login');
   })
-  .post(async (req, res) => {
+  .post(noSessionChecker, async (req, res) => {
     const { login, password } = req.body;
 
     const user = await User.findOne({ login });
@@ -54,12 +54,8 @@ router.route('/login')
 
 
 // route for user's dashboard
-router.get('/dashboard', (req, res) => {
-  if (req.session.user && req.cookies.user_sid) {
-    res.render('dashboard');
-  } else {
-    res.redirect('/login');
-  }
+router.get('/dashboard', sessionChecker, (req, res) => {
+  res.render('dashboard');
 });
 
 
