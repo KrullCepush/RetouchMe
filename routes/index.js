@@ -65,17 +65,17 @@ router
 
 // route for user's dashboard
 router.get('/dashboard', sessionChecker, async (req, res) => {
-  const openTasks = await Task.find({ status: false, approved: true });
-  const closedTasks = await Task.find({ status: true, approved: true });
-  const hiddenTasks = await Task.find({ approved: false });
+  const openTasks = await Task.find({ status: false, approved: true, inProgress: false });
+  const completedTasks = await Task.find({ status: true, approved: true, inProgress: false });
+  const unapprovedTasks = await Task.find({ approved: false });
 
   const { user } = req.session;
 
   res.render('dashboard', {
     user,
     openTasks,
-    closedTasks,
-    hiddenTasks,
+    completedTasks,
+    unapprovedTasks,
   });
 });
 

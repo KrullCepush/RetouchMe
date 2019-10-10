@@ -9,6 +9,7 @@ const tasks = [
   {
     status: false,
     approved: true,
+    inProgress: false,
     issuedBy: 'Эдвард',
     title: 'Не выполнена и одобрена админом - Нужна ретуш и коллажирование фото',
     info: 'Нужно обработать и частично склеить фото, сделать нужно до вечера.',
@@ -19,6 +20,7 @@ const tasks = [
   {
     status: false,
     approved: true,
+    inProgress: false,
     issuedBy: 'Евгения',
     title: 'Не выполнена и одобрена админом - 10 фото',
     info: 'Желательно бы, чтобы было готово вчера, но если сегодня, то тоже ок',
@@ -29,6 +31,7 @@ const tasks = [
   {
     status: false,
     approved: true,
+    inProgress: false,
     issuedBy: 'Антон',
     title: 'Не выполнена и одобрена админом - Ретуш 200 фото',
     info: 'Добрый день. Работа на пару часов',
@@ -39,6 +42,7 @@ const tasks = [
   {
     status: false,
     approved: true,
+    inProgress: false,
     issuedBy: 'Алексей',
     title: 'Не выполнена и одобрена админом - 30-40 фото',
     info: 'Нужен ретушер, умеющий работать в технике частотного разложения. Задача – 30-40 фотографий с фотосессии',
@@ -49,6 +53,7 @@ const tasks = [
   {
     status: true,
     approved: true,
+    inProgress: false,
     issuedBy: 'client2',
     title: 'Выполнена - ретуш, срочно',
     info: '50 фотографий.',
@@ -59,6 +64,7 @@ const tasks = [
   {
     status: true,
     approved: true,
+    inProgress: false,
     issuedBy: 'Роман Анатольевич',
     title: 'Выполнена - Нужна ретуш, срочно',
     info: '35 фотографий.',
@@ -69,6 +75,7 @@ const tasks = [
   {
     status: true,
     approved: true,
+    inProgress: false,
     issuedBy: 'renata1965',
     title: 'Выполнена - Ретуш',
     info: '100 фотографий.',
@@ -79,6 +86,7 @@ const tasks = [
   {
     status: false,
     approved: false,
+    inProgress: false,
     issuedBy: 'client3',
     title: 'НЕ одобрена админом - ретуш? А надо ли мне оно..',
     info: 'я просто так зашёл на ваш сайт посмотреть',
@@ -89,6 +97,7 @@ const tasks = [
   {
     status: false,
     approved: false,
+    inProgress: false,
     issuedBy: 'client3',
     title: 'НЕ одобрена админом',
     info: 'spjihvonvpemlfd',
@@ -99,6 +108,7 @@ const tasks = [
   {
     status: false,
     approved: false,
+    inProgress: false,
     issuedBy: 'client3',
     title: 'НЕ одобрена админом - !!11kdjvjepo3pflm',
     info: 'lalalalalalalalalalla',
@@ -109,6 +119,7 @@ const tasks = [
   {
     status: false,
     approved: true,
+    inProgress: false,
     issuedBy: 'Эдвард',
     title: 'Не выполнена и одобрена админом - Нужна ретуш и коллажирование фото',
     info: 'Нужно обработать и частично склеить фото, сделать нужно до вечера.',
@@ -119,6 +130,7 @@ const tasks = [
   {
     status: false,
     approved: true,
+    inProgress: false,
     issuedBy: 'Евгения',
     title: 'Не выполнена и одобрена админом - 10 фото',
     info: 'Желательно бы, чтобы было готово вчера, но если сегодня, то тоже ок',
@@ -129,6 +141,7 @@ const tasks = [
   {
     status: false,
     approved: true,
+    inProgress: false,
     issuedBy: 'Антон',
     title: 'Не выполнена и одобрена админом - Ретуш 200 фото',
     info: 'Добрый день. Работа на пару часов',
@@ -139,6 +152,7 @@ const tasks = [
   {
     status: false,
     approved: true,
+    inProgress: false,
     issuedBy: 'Алексей',
     title: 'Не выполнена и одобрена админом - 30-40 фото',
     info: 'Нужен ретушер, умеющий работать в технике частотного разложения. Задача – 30-40 фотографий с фотосессии',
@@ -149,6 +163,7 @@ const tasks = [
   {
     status: true,
     approved: true,
+    inProgress: false,
     issuedBy: 'client2',
     title: 'Выполнена - ретуш, срочно',
     info: '50 фотографий.',
@@ -159,6 +174,7 @@ const tasks = [
   {
     status: true,
     approved: true,
+    inProgress: false,
     issuedBy: 'Роман Анатольевич',
     title: 'Выполнена - Нужна ретуш, срочно',
     info: '35 фотографий.',
@@ -169,6 +185,7 @@ const tasks = [
   {
     status: true,
     approved: true,
+    inProgress: false,
     issuedBy: 'renata1965',
     title: 'Выполнена - Ретуш',
     info: '100 фотографий.',
@@ -179,6 +196,7 @@ const tasks = [
   {
     status: false,
     approved: false,
+    inProgress: false,
     issuedBy: 'client3',
     title: 'НЕ одобрена админом - ретуш? А надо ли мне оно..',
     info: 'я просто так зашёл на ваш сайт посмотреть',
@@ -189,6 +207,7 @@ const tasks = [
   {
     status: false,
     approved: false,
+    inProgress: false,
     issuedBy: 'client3',
     title: 'НЕ одобрена админом',
     info: 'spjihvonvpemlfd',
@@ -199,6 +218,7 @@ const tasks = [
   {
     status: false,
     approved: false,
+    inProgress: false,
     issuedBy: 'client3',
     title: 'НЕ одобрена админом - !!11kdjvjepo3pflm',
     info: 'lalalalalalalalalalla',
@@ -209,6 +229,7 @@ const tasks = [
   {
     status: false,
     approved: true,
+    inProgress: false,
     issuedBy: 'Эдвард',
     title: 'Не выполнена и одобрена админом - Нужна ретуш и коллажирование фото',
     info: 'Нужно обработать и частично склеить фото, сделать нужно до вечера.',
@@ -219,6 +240,7 @@ const tasks = [
   {
     status: false,
     approved: true,
+    inProgress: false,
     issuedBy: 'Евгения',
     title: 'Не выполнена и одобрена админом - 10 фото',
     info: 'Желательно бы, чтобы было готово вчера, но если сегодня, то тоже ок',
@@ -229,6 +251,7 @@ const tasks = [
   {
     status: false,
     approved: true,
+    inProgress: false,
     issuedBy: 'Антон',
     title: 'Не выполнена и одобрена админом - Ретуш 200 фото',
     info: 'Добрый день. Работа на пару часов',
@@ -239,6 +262,7 @@ const tasks = [
   {
     status: false,
     approved: true,
+    inProgress: false,
     issuedBy: 'Алексей',
     title: 'Не выполнена и одобрена админом - 30-40 фото',
     info: 'Нужен ретушер, умеющий работать в технике частотного разложения. Задача – 30-40 фотографий с фотосессии',
@@ -249,6 +273,7 @@ const tasks = [
   {
     status: true,
     approved: true,
+    inProgress: false,
     issuedBy: 'client2',
     title: 'Выполнена - ретуш, срочно',
     info: '50 фотографий.',
@@ -259,6 +284,7 @@ const tasks = [
   {
     status: true,
     approved: true,
+    inProgress: false,
     issuedBy: 'Роман Анатольевич',
     title: 'Выполнена - Нужна ретуш, срочно',
     info: '35 фотографий.',
@@ -269,6 +295,7 @@ const tasks = [
   {
     status: true,
     approved: true,
+    inProgress: false,
     issuedBy: 'renata1965',
     title: 'Выполнена - Ретуш',
     info: '100 фотографий.',
@@ -279,6 +306,7 @@ const tasks = [
   {
     status: false,
     approved: false,
+    inProgress: false,
     issuedBy: 'client3',
     title: 'НЕ одобрена админом - ретуш? А надо ли мне оно..',
     info: 'я просто так зашёл на ваш сайт посмотреть',
@@ -289,6 +317,7 @@ const tasks = [
   {
     status: false,
     approved: false,
+    inProgress: false,
     issuedBy: 'client3',
     title: 'НЕ одобрена админом',
     info: 'spjihvonvpemlfd',
@@ -299,6 +328,7 @@ const tasks = [
   {
     status: false,
     approved: false,
+    inProgress: false,
     issuedBy: 'client3',
     title: 'НЕ одобрена админом - !!11kdjvjepo3pflm',
     info: 'lalalalalalalalalalla',
