@@ -5,11 +5,13 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
-
+const mongoose = require('mongoose');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 // const notifRouter = require('./routes/notif');
+
+mongoose.connect('mongodb://localhost:27017/retouchme', { useNewUrlParser: true });
 
 const app = express();
 

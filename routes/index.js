@@ -56,8 +56,8 @@ router.route('/login')
 
 // route for user's dashboard
 router.get('/dashboard', sessionChecker, async (req, res) => {
-  const openTasks = Task.find({ status: true });
-  const hiddenTasks = Task.find({ status: true });
+  const openTasks = await Task.find({ status: true });
+  const hiddenTasks = await Task.find({ status: true });
   const { user } = req.session;
   res.render('dashboard', {
     user,
