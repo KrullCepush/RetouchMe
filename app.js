@@ -9,6 +9,7 @@ const mongoose = require('mongoose');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const tasksRouter = require('./routes/tasks');
 // const notifRouter = require('./routes/notif');
 
 mongoose.connect('mongodb://localhost:27017/retouchme', {
@@ -44,6 +45,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/tasks', tasksRouter);
 // app.use('/notif', notifRouter);
 
 // catch 404 and forward to error handler

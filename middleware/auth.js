@@ -39,5 +39,5 @@ module.exports = {
   noSessionChecker,
   getUserId,
   isAdmin,
-  isAuthorized
+  isAuthorized,
 };

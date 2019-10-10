@@ -22,12 +22,24 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto ">
           {{#if user}}
+            {{#if user.admin}}
             <li class="nav-item">
-              <a class="nav-link font-weight-bold" href="#">Profile</a>
+              <a class="nav-link font-weight-bold" href="/dashboard">Новые заявки</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link font-weight-bold" href="/logout">LogOut</a>
+              <a class="nav-link font-weight-bold" href="#">В работе</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link font-weight-bold" href="#">Все заявки</a>
+            </li>
+            {{/if}}
+
+            <li class="nav-item">
+              <a class="nav-link font-weight-bold" href="#">{{user.login}}</a>
+            </li>
+            <li class="nav-item right">
+              <a class="nav-link font-weight-bold" href="/logout">Выйти</a>
+            </li>            
           {{else}}
             <li>
               <a class="nav-link" href="/login">Login</a>
