@@ -1,28 +1,28 @@
 const sessionChecker = (req, res, next) => {
-  if (req.session.user && req.cookies.user_sid) {
+  if (req.session.user && req.cookies) {
     next();
   } else {
-    res.redirect('/login');
+    res.redirect("/login");
   }
 };
 
 const noSessionChecker = (req, res, next) => {
-  if (req.session.user && req.cookies.user_sid) {
-    res.redirect('/dashboard');
+  if (req.session.user && req.cookies) {
+    res.redirect("/dashboard");
   } else {
     next();
   }
 };
 
 const getUserId = (req, res, next) => {
-  return req.user && req.user._id;
+  return req.session.user && req.session.user._id;
 };
 
 const isAdmin = (req, res, next) => {
-  if (req.session.user.admin && req.cookies.user_sid) {
+  if (req.session.user.admin && req.cookies) {
     next();
   } else {
-    res.redirect('/dashboard');
+    res.redirect("/dashboard");
   }
 };
 
@@ -30,7 +30,7 @@ const isAuthorized = (req, res, next) => {
   if (req.session.user.admin || req.session.user._id === req.params.id) {
     next();
   } else {
-    res.redirect('/dashboard');
+    res.redirect("/dashboard");
   }
 };
 
@@ -39,5 +39,5 @@ module.exports = {
   noSessionChecker,
   getUserId,
   isAdmin,
-  isAuthorized,
+  isAuthorized
 };

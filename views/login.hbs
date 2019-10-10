@@ -1,0 +1,14 @@
+<div class="wrap-login">
+    <div class="my-2">Login</div>
+    <form action="/login" method="POST">
+        <input type="text" name="login" placeholder="you login">
+        <input type="text" name="password" placeholder="you password">
+        <input type="submit">
+    </form>
+    {{#if message}}
+    <div class="message my-3">{{message}}</div>
+    {{/if}}
+    <div class="my-4 btn-warning">
+        <a class="btn" href="/signup" style="display: block">Go to registration</a>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="wrap-dashboard">
+    <div class="dashboard-header">
+        <h2 class="dashboard-header__header">
+            Все доступные проекты
+        </h2>
+    </div>
+    {{#each openTasks}}
+    <div class="dashboard-contant">
+        <div class="dashboard-contant__header py-2">
+            <a class="/tasks{{this.id}}" href="#">
+                {{this.title}}
+            </a>
+        </div>
+        <div class="row mb-3">
+            <div class="col-6 dashboard-contant__price">
+                price: <span id="deshboard-price">{{this.cost}}</span>
+            </div>
+            <div class="col-6 dashboard-contant__photos">
+                photos: <span>{{this.amount}}</span>
+            </div>
+        </div>
+        <div class="dashboard-contant__desc mb-3">
+            {{this.info}}
+        </div>
+        <div class="dashboard-contant__date">date: <span>{{this.createdAt}}</span></div>
+    </div>
+    {{/each}}
+</div>
