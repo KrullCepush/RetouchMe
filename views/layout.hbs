@@ -10,30 +10,32 @@
 
 <body>
   <header class="header container-fluid">
-    <nav class="navigation">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="navigation-list container py-4">
-        <div class="row">
-          <div class="col-5">
-            <a href="/" class="navigation-list__logo-link">
-              <img class="navigation-list__logo-link_logo" src="/images/header/logotip.png" alt="Logo">
-              <img class="navigation-list__logo-link_logo-name" src="/images/header/logoname.png"
-                alt="Logo description">
-            </a>
-          </div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <a class="navbar-brand" href="/">
+              <img class="nav-item" src="/images/header/logotip.png" style="height: 50px; display: inline;" alt=" PLSRETOUCH.ME ">
+              <img class="nav-item" src="/images/header/logoname.png" style="height: 30px; display: inline;" alt=" PLSRETOUCH.ME ">
+                <span class="sr-only">(current)</span></a>
+          </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto ">
           {{#if user}}
-          <div class="col-3 navigation-list__link-section">
-            <a href="#">Profile</a>
-          </div>
-          <div class="col-3 navigation-list__link-section">
-            <a href="/logout">LogOut</a>
-          </div>
+            <li class="nav-item">
+              <a class="nav-link font-weight-bold" href="#">Profile</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link font-weight-bold" href="/logout">LogOut</a>
+            </li>
           {{else}}
-          <div class="col-3 navigation-list__link-section">
-            <a href="/login">Login</a>
-          </div>
-          <div class="col-4 navigation-list__link-section">
-            <a href="/signup">Registration</a>
-          </div>
+            <li>
+              <a class="nav-link" href="/login">Login</a>
+            </li>
+            <li>
+              <a class="nav-link" href="/signup">Registration</a>
+            </li>
+          </ul>
           {{/if}}
         </div>
       </div>
