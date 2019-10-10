@@ -8,11 +8,27 @@
   "dependencies": {
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
-    "express": "~4.16.1",
+    "eslint": "^6.5.1",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "express": "^4.16.4",
     "hbs": "~4.0.4",
     "http-errors": "~1.6.3",
     "mongoose": "^5.7.3",
-    "morgan": "~1.9.1",
-    "nodemon": "^1.19.3"
-  }
+    "mongoose-unique-validator": "^2.0.3",
+    "morgan": "~1.9.1"
+  },
+  "description": "Hello",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KrullCepush/RetouchMe.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KrullCepush/RetouchMe/issues"
+  },
+  "homepage": "https://github.com/KrullCepush/RetouchMe#readme"
 }
