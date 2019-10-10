@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const taskSchema = new mongoose.Schema({
   status: { type: Boolean, default: false },
   approved: { type: Boolean, default: false },
+  inProgress: { type: Boolean, default: false },
   issuedBy: String,
   title: String,
   info: String,

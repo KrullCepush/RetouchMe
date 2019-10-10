@@ -16,9 +16,10 @@
     "express-session": "^1.16.2",
     "hbs": "~4.0.4",
     "http-errors": "~1.6.3",
-    "mongoose": "^5.7.3",
+    "mongoose": "^5.7.4",
     "mongoose-unique-validator": "^2.0.3",
-    "morgan": "~1.9.1"
+    "morgan": "~1.9.1",
+    "nodemon": "^1.19.3"
   },
   "description": "Hello",
   "main": "app.js",

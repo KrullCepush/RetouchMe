@@ -1,10 +1,65 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>{{title}}</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    {{{body}}}
-  </body>
+
+<head>
+  <title>{{title}}</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel='stylesheet' href='/stylesheets/style.css'>
+</head>
+
+<body>
+  <header class="header container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="navigation-list container py-4">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <a class="navbar-brand" href="/">
+              <img class="nav-item" src="/images/header/logotip.png" style="height: 50px; display: inline;" alt=" PLSRETOUCH.ME ">
+              <img class="nav-item" src="/images/header/logoname.png" style="height: 30px; display: inline;" alt=" PLSRETOUCH.ME ">
+                <span class="sr-only">(current)</span></a>
+          </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto ">
+          {{#if user}}
+            <li class="nav-item">
+              <a class="nav-link font-weight-bold" href="#">Profile</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link font-weight-bold" href="/logout">LogOut</a>
+            </li>
+          {{else}}
+            <li>
+              <a class="nav-link" href="/login">Login</a>
+            </li>
+            <li>
+              <a class="nav-link" href="/signup">Registration</a>
+            </li>
+          </ul>
+          {{/if}}
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main class="main container-fluid">
+    <div class="container">
+      {{{body}}}
+    </div>
+  </main>
+  <footer class="footer container-fluid">
+    <div class="container">
+
+    </div>
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>

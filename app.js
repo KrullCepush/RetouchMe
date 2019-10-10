@@ -11,7 +11,9 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 // const notifRouter = require('./routes/notif');
 
-mongoose.connect('mongodb://localhost:27017/retouchme', { useNewUrlParser: true });
+mongoose.connect('mongodb://localhost:27017/retouchme', {
+  useNewUrlParser: true,
+});
 
 const app = express();
 

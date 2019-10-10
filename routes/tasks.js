@@ -10,7 +10,7 @@ router.route('/')
   .get(isAdmin, async (req, res, next) => {
     const openTasks = await Task.find({ status: true });
     const hiddenTasks = await Task.find({ status: false });
-    
+
     res.render('tasks/index', {
       openTasks,
       hiddenTasks,
