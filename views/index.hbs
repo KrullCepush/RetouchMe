@@ -1,2 +1,15 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<div class="wrap-desctop">
+    <h1 class="py-2 text-center font-weight-bold wrap-desctop__head">Главная страница</h1>
+    <div class="index-desctop my-3">
+        <img src="/images/index/cat.png" alt="cat">
+    </div>
+    {{#if user}}
+    <div class="btn-warning text-center">
+        <a class="btn py-2 " href="/dashboard">Посмотреть доступные заказы</a>
+    </div>
+    {{else}}
+    <div class="btn-warning mx-auto">
+        <a class="btn " href="/login">Авторизируйтесь, чтобы посмотреть доступные заказы</a>
+    </div>
+    {{/if}}
+</div>
