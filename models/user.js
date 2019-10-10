@@ -17,10 +17,10 @@ const userSchema = new mongoose.Schema({
   password: { type: String, required: [true, "can't be blank"] },
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },
-  projects: [],
-  completedProjects: [],
-  rejectedProjects: [],
-  info: [],
+  tasks: [],
+  completedTasks: [],
+  rejectedTasks: [],
+  info: String,
 });
 
 userSchema.plugin(uniqueValidator, { message: 'is already taken.' });
