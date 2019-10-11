@@ -1,12 +1,29 @@
 const express = require("express");
 const Httpsproxyagent = require("https-proxy-agent");
 
+const multer = require("multer");
 const router = express.Router();
 const Telegraf = require("telegraf");
 const { sessionChecker, isAdmin } = require("../middleware/auth");
 
 const Task = require("../models/task");
 const User = require("../models/user");
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "./uploads/");
+  },
+  filename: (req, file, cb) => {
+    cb(null, new Date().toISOString() + file.originalname);
+  }
+});
+
+const upload = multer({
+  storage: storage,
+  limits: {
+    fileSize: 1024 * 1024 * 5
+  }
+});
 
 const bot = new Telegraf("878779383:AAEQ6ZT6Xmw7BZPo89yO-bLBmHFAIgGq5ac", {
   telegram: {
@@ -39,29 +56,33 @@ router
       unapprovedTasks
     });
   })
-  .post(async (req, res, next) => {
-    try {
-      const task = new Task({
-        cltName: req.body.cltName,
-        cltEmail: req.body.cltEmail,
-        cltPhone: req.body.cltPhone,
-        cltComments: req.body.cltComments,
-        amount: req.body.amount,
-        cost: req.body.cost,
-        cltLink: req.body.cltlink,
-        cltFile: req.file.path
-      });
-      await task.save();
-      bot.telegram.sendMessage(
-        347672329,
-        `Новая заявка: http://plsretouch.me/tasks/${task.id}, стоимость: ${task.cost}`
-      );
-      res.redirect("/orders");
-    } catch (error) {
-      res.render("orders/orderForm", {
-        error
-      });
-    }
+  .post(upload.single("file"), async (req, res, next) => {
+    console.log(req.body);
+    console.log(2);
+    // try {
+    const task = new Task({
+      cltName: req.body.cltName,
+      cltEmail: req.body.cltEmail,
+      cltPhone: req.body.cltPhone,
+      cltComments: req.body.cltComments,
+      amount: req.body.amount,
+      cost: req.body.cost,
+      cltLink: req.body.cltLink,
+      cltFiles: req.file.path
+    });
+    await task.save();
+    bot.telegram.sendMessage(
+      347672329,
+      `Новая заявка: http://plsretouch.me/tasks/${task.id}, стоимость: ${task.cost}`
+    );
+    console.log(1);
+
+    res.redirect("/");
+    // } catch (error) {
+    //   res.render("orders/orderForm", {
+    //     error
+    //   });
+    // }
   });
 
 router.route("/:id").get(sessionChecker, async (req, res, next) => {

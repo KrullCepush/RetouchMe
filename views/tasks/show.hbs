@@ -9,23 +9,26 @@
 
     {{#if user.admin}}
     <p class="card-text">{{ task.contacts }}</p>
-    <a href="{{task.link}}" class="card-text">{{ task.link }}</p>
-      <div class="btn-group" role="group" aria-label="Basic example">
-        <a href="#" type="button" class="btn btn-secondary">Редактировать</a>
-        <a href="#" type="button" class="btn btn-secondary">Удалить</a>
-      </div>
+    <a style="display: block" href="{{task.cltLink}}" class="mb-3 card-text">{{ task.cltLink }}</a>
+    <a style="display: block" href="{{task.cltFiles}}" class="mb-3 card-text"><img style="width: 300px"
+        src="/{{ task.cltFiles }}" alt="img"></a>
 
-      {{#unless task.approved}}
-      <a href="#" class="btn btn-success"> Одобрить заявку </a>
-      {{/unless}}
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <a href="#" type="button" class="btn btn-secondary">Редактировать</a>
+      <a href="#" type="button" class="btn btn-secondary">Удалить</a>
+    </div>
+
+    {{#unless task.approved}}
+    <a href="#" class="btn btn-success"> Одобрить заявку </a>
+    {{/unless}}
 
 
 
 
-      {{else}}
+    {{else}}
 
-      <a href="#" class="btn btn-primary"> Взять заявку </a>
-      {{/if}}
+    <a href="#" class="btn btn-primary"> Взять заявку </a>
+    {{/if}}
   </div>
   <div class="card-footer text-muted">
     {{ task.updatedAt }}

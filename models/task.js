@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const taskSchema = new mongoose.Schema({
   status: { type: Boolean, default: false },
@@ -6,27 +6,27 @@ const taskSchema = new mongoose.Schema({
   inProgress: { type: Boolean, default: false },
   cltName: {
     type: String,
-    required: [true, "can't be blank"],
+    required: [true, "can't be blank"]
   },
   cltEmail: {
     type: String,
     lowercase: true,
     required: [true, "can't be blank"],
-    match: [/\S+@\S+\.\S+/, 'is invalid'],
+    match: [/\S+@\S+\.\S+/, "is invalid"]
   },
   cltPhone: {
     type: String,
-    required: [true, "can't be blank"],
+    required: [true, "can't be blank"]
   },
   title: String,
   cltComments: String,
   amount: Number,
   cost: Number,
-  cltlink: String,
+  cltLink: String,
   rtchLink: String,
   cltFiles: String,
   createdAt: { type: Date, default: Date.now },
-  updatedAt: { type: Date, default: Date.now },
+  updatedAt: { type: Date, default: Date.now }
 });
 
-module.exports = mongoose.model('Task', taskSchema);
+module.exports = mongoose.model("Task", taskSchema);
