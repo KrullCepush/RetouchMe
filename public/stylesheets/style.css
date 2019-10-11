@@ -78,3 +78,108 @@ body {
     line-height: 18px;
   }
 }
+
+@media (min-width: 570px) {
+  form input {
+    display: block;
+    margin: 30px auto;
+    width: 320px;
+    padding: 20px;
+    border-radius: 30px;
+    outline: none;
+    border: 2px solid orange;
+    font-size: 18px;
+  }
+
+  .navigation-list__logo-link_logo {
+    width: 75px;
+    height: 74px;
+  }
+
+  .navigation-list__logo-link_logo-name {
+    width: 300px;
+    height: 70px;
+    display: inline-block;
+    margin-left: 10px;
+  }
+
+  .navigation-list__link-section {
+    padding-top: 20px;
+    text-align: right;
+  }
+  .navigation-list__link-section a {
+    padding-top: 20px;
+    font-size: 30px;
+    text-align: right;
+    text-decoration: none !important;
+    color: #000 !important;
+  }
+
+  .navigation-list__link-section a:hover {
+    text-decoration: none !important;
+    color: orange !important;
+  }
+
+  .index-desctop img {
+    display: block;
+    margin: 0 auto;
+    max-width: 900px;
+  }
+
+  .wrap-desctop__head {
+    font-size: 21px;
+  }
+
+  .dashboard-contant {
+    box-sizing: border-box;
+    border: 1px solid yellowgreen;
+    border-right: none;
+    border-left: none;
+    padding: 15px 0;
+    margin: 10px 0;
+  }
+
+  .dashboard-header {
+    margin-top: 30px;
+    margin-bottom: 60px;
+  }
+
+  .dashboard-contant__header {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+
+  .dashboard-contant__price {
+    font-size: 22px;
+    color: green !important;
+  }
+
+  .dashboard-contant__photos {
+    font-size: 22px;
+    color: green !important;
+    text-align: right;
+  }
+
+  .dashboard-contant__desc {
+    font-size: 18px;
+    line-height: 18px;
+  }
+
+  .index-link {
+    max-width: 500px;
+  }
+
+  .index-link a {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .wrap-auth__header {
+    font-size: 26px;
+    font-weight: bold;
+    color: orangered;
+    margin: 0 auto;
+    text-align: center;
+    margin: 30px 0;
+  }
+}
