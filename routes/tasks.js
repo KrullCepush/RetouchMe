@@ -1,14 +1,23 @@
 const express = require('express');
+const Httpsproxyagent = require('https-proxy-agent');
 
 const router = express.Router();
-
+const Telegraf = require('telegraf');
 const { sessionChecker, isAdmin } = require('../middleware/auth');
 
 const Task = require('../models/task');
 const User = require('../models/user');
 
+const bot = new Telegraf('878779383:AAEQ6ZT6Xmw7BZPo89yO-bLBmHFAIgGq5ac', {
+  telegram: {
+    agent: new Httpsproxyagent('http://167.71.59.12:3128'),
+  },
+});
 
-router.route('/')
+bot.start((ctx) => ctx.reply('Welcome'));
+
+router
+  .route('/')
   .get(isAdmin, async (req, res, next) => {
     const openTasks = await Task.find({ status: false, approved: true, inProgress: false });
     const completedTasks = await Task.find({ status: true, approved: true, inProgress: false });
@@ -31,9 +40,14 @@ router.route('/')
         cltComments: req.body.cltComments,
         amount: req.body.amount,
         cost: req.body.cost,
-        cltlink: req.body.cltlink,
+        cltLink: req.body.cltlink,
+        cltFile: req.file.path,
       });
       await task.save();
+      bot.telegram.sendMessage(
+        347672329,
+        `Новая заявка: http://plsretouch.me/tasks/${task.id}, стоимость: ${task.cost}`,
+      );
       res.redirect('/orders');
     } catch (error) {
       res.render('orders/orderForm', {
@@ -42,12 +56,11 @@ router.route('/')
     }
   });
 
-router.route('/:id')
-  .get(sessionChecker, async (req, res, next) => {
-    const task = await Task.findById(req.params.id);
-    const user = await User.findById(req.session.user._id);
-    res.render('tasks/show', { task, user });
-  })
+router.route('/:id').get(sessionChecker, async (req, res, next) => {
+  const task = await Task.findById(req.params.id);
+  const user = await User.findById(req.session.user._id);
+  res.render('tasks/show', { task, user });
+});
 // .put(isAdmin, async (req, res, next) => {
 //   const task = await Task.findById(req.params.id);
 //   task.email = req.body.email;

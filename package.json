@@ -17,11 +17,13 @@
     "faker": "^4.1.0",
     "hbs": "~4.0.4",
     "http-errors": "~1.6.3",
+    "https-proxy-agent": "^3.0.0",
     "method-override": "^3.0.0",
     "mongoose": "^5.7.4",
     "mongoose-unique-validator": "^2.0.3",
     "morgan": "~1.9.1",
-    "nodemon": "^1.19.3"
+    "nodemon": "^1.19.3",
+    "telegraf": "^3.32.0"
   },
   "description": "Hello",
   "main": "app.js",
