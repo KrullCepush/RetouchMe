@@ -10,8 +10,7 @@ const Task = require('../models/task');
 const router = express.Router();
 
 // route for Home-Page
-router.get('/', (req, res) => {
-  console.log(req.session);
+router.get('/', noSessionChecker, (req, res) => {
 
   res.render('index', {
     user: getUserId(req),

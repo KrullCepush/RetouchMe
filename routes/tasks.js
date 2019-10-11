@@ -5,7 +5,7 @@ const router = express.Router();
 const { sessionChecker, isAdmin } = require('../middleware/auth');
 
 const Task = require('../models/task');
-const User = require("../models/user");
+const User = require('../models/user');
 
 
 router.route('/')
@@ -21,6 +21,25 @@ router.route('/')
       completedTasks,
       unapprovedTasks,
     });
+  })
+  .post(async (req, res, next) => {
+    try {
+      const task = new Task({
+        cltName: req.body.cltName,
+        cltEmail: req.body.cltEmail,
+        cltPhone: req.body.cltPhone,
+        cltComments: req.body.cltComments,
+        amount: req.body.amount,
+        cost: req.body.cost,
+        cltlink: req.body.cltlink,
+      });
+      await task.save();
+      res.redirect('/orders');
+    } catch (error) {
+      res.render('orders/orderForm', {
+        error,
+      });
+    }
   });
 
 router.route('/:id')
@@ -29,19 +48,16 @@ router.route('/:id')
     const user = await User.findById(req.session.user._id);
     res.render('tasks/show', { task, user });
   })
-  .post(sessionChecker, isAdmin, async (req, res, next) =>{
-    
-  })
-  // .put(isAdmin, async (req, res, next) => {
-  //   const task = await Task.findById(req.params.id);
-  //   task.email = req.body.email;
-  //   task.password = req.body.password;
-  //   await task.save();
-  //   res.redirect(`/tasks/${task.id}`);
-  // })
-  // .delete(isAdmin, async (req, res, next) => {
-  //   await task.findByIdAndDelete(req.params.id);
-  //   res.redirect('/tasks');
-  // });
+// .put(isAdmin, async (req, res, next) => {
+//   const task = await Task.findById(req.params.id);
+//   task.email = req.body.email;
+//   task.password = req.body.password;
+//   await task.save();
+//   res.redirect(`/tasks/${task.id}`);
+// })
+// .delete(isAdmin, async (req, res, next) => {
+//   await task.findByIdAndDelete(req.params.id);
+//   res.redirect('/tasks');
+// });
 
 module.exports = router;
