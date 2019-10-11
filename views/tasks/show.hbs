@@ -1,11 +1,11 @@
 <div class="card">
-  <div class="card-header">
+  {{!-- <div class="card-header">
     {{ task.title }}
-  </div>
+  </div> --}}
   <div class="card-body">
     <h5 class="card-title">Количество: {{ task.amount }} шт.</h5>
     <h5 class="card-title">Стоимость: {{ task.cost }} рублей </h5>
-    <p class="card-text">{{ task.info }}</p>
+    <p class="card-text">{{ task.cltComments }}</p>
 
     {{#if user.admin}}
       <p class="card-text">{{ task.contacts }}</p>
