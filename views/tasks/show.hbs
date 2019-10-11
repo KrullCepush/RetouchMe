@@ -1,15 +1,15 @@
 <div class="card">
-  <div class="card-header">
+  {{!-- <div class="card-header">
     {{ task.title }}
-  </div>
+  </div> --}}
   <div class="card-body">
     <h5 class="card-title">Количество: {{ task.amount }} шт.</h5>
     <h5 class="card-title">Стоимость: {{ task.cost }} рублей </h5>
-    <p class="card-text">{{ task.info }}</p>
+    <p class="card-text">{{ task.cltComments }}</p>
 
     {{#if user.admin}}
-      <p class="card-text">{{ task.contacts }}</p>
-      <a href="{{task.link}}"class="card-text">{{ task.link }}</p>
+    <p class="card-text">{{ task.contacts }}</p>
+    <a href="{{task.link}}" class="card-text">{{ task.link }}</p>
       <div class="btn-group" role="group" aria-label="Basic example">
         <a href="#" type="button" class="btn btn-secondary">Редактировать</a>
         <a href="#" type="button" class="btn btn-secondary">Удалить</a>
@@ -18,14 +18,14 @@
       {{#unless task.approved}}
       <a href="#" class="btn btn-success"> Одобрить заявку </a>
       {{/unless}}
-      
 
-      
-    
-    {{else}}
-    
-    <a href="#" class="btn btn-primary"> Взять заявку </a>
-    {{/if}}
+
+
+
+      {{else}}
+
+      <a href="#" class="btn btn-primary"> Взять заявку </a>
+      {{/if}}
   </div>
   <div class="card-footer text-muted">
     {{ task.updatedAt }}

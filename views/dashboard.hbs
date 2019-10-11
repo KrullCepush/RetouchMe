@@ -1,3 +1,14 @@
+{{#if openTasks}}
+{{#if user.admin}}
+<h2 class="dashboard-header__header">Новые заявки</h2>
+{{#each unapprovedTasks}}
+здесь стили для задач, которые не прошли одобрение админа
+{{/each}}
+{{/if}}
+{{/if}}
+
+{{#unless user.admin}}
+{{#if openTasks}}
 <div class="wrap-dashboard">
     <div class="dashboard-header">
         <h2 class="dashboard-header__header">
@@ -7,8 +18,8 @@
     {{#each openTasks}}
     <div class="dashboard-contant">
         <div class="dashboard-contant__header py-2">
-            <a class="/tasks/{{this.id}}" href="#">
-                {{this.title}}
+            <a class="" href="/tasks/{{this.id}}">
+                {{this.cltComments}}
             </a>
         </div>
         <div class="row mb-3">
@@ -26,3 +37,5 @@
     </div>
     {{/each}}
 </div>
+{{/if}}
+{{/unless}}
