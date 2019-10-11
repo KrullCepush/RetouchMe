@@ -6,6 +6,7 @@ const logger = require('morgan');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const mongoose = require('mongoose');
+const methodOverride = require('method-override');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
@@ -17,6 +18,8 @@ mongoose.connect('mongodb://localhost:27017/retouchme', {
 });
 
 const app = express();
+
+app.use(methodOverride('_method'));
 
 app.use(
   session({
