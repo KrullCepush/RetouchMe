@@ -1,0 +1,27 @@
+<div class="wrap mt-5">
+    <section class="first">
+        <div class="user-wrap">
+            <div class="user-wrap-avatar">
+                <div class="user-wrap-avatar__img"></div>
+            </div>
+            <div class="user-wrap-profile">
+                <p>login: {{user.login}} </p>
+                <p>username: {{user.username}} </p>
+                <p>Mail: {{user.email}} </p>
+            </div>
+        </div>
+        <div class="user-info mt-5">
+            <p>{{user.info}}</p>
+        </div>
+    </section>
+    <section class="second">
+        <div class="user-tasks-wrap">
+            {{#each user.tasks}}
+            <div class="user-tasks">
+                <div class="user-tasks__name"> {{this.cltName}} </div>
+                <div class="user-tasks__comment"> {{this.cltComments}} </div>
+            </div>
+            {{/each}}
+        </div>
+    </section>
+</div>
