@@ -27,9 +27,5 @@ const upload = multer({
 router.get("/", (req, res) => {
   res.render("orders/orderForm");
 });
-router.post("/", upload.single("file"), async (req, res) => {
-  console.log(req.file);
-  console.log(req.body);
-});
 
 module.exports = router;
