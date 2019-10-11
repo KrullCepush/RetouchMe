@@ -12,6 +12,7 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const tasksRouter = require('./routes/tasks');
 // const notifRouter = require('./routes/notif');
+const orderRouter = require('./routes/orders');
 
 mongoose.connect('mongodb://localhost:27017/retouchme', {
   useNewUrlParser: true,
@@ -50,6 +51,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/tasks', tasksRouter);
 // app.use('/notif', notifRouter);
+app.use('/orders', orderRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
