@@ -80,7 +80,7 @@ body {
 }
 
 @media (min-width: 570px) {
-  form input {
+  .form-auth input {
     display: block;
     margin: 30px auto;
     width: 320px;
@@ -89,6 +89,15 @@ body {
     outline: none;
     border: 2px solid orange;
     font-size: 18px;
+  }
+
+  .form-file {
+    padding: 30px 0;
+  }
+
+  .form-file input {
+    display: block;
+    padding: 15px;
   }
 
   .navigation-list__logo-link_logo {

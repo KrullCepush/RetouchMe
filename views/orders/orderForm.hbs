@@ -1,43 +1,45 @@
-
-  <div>
-    <h2 style="color: white">Заявка на обработку фотографий</h2>
-  </div>
-  <form action ='/tasks' method= "POST">
-    <div class="input-group input-group-lg rounded-lg form-group">
-      <input type="text" class="form-control rounded-lg" name: "cltName" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Ваше Имя и Фамилия">
-    </div>
-    <div class="input-group input-group-lg form-group">
-      <input type="email" class="form-control" name: "cltEmail" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Ваш e-mail">
-    </div>
-    <div class="input-group input-group-lg form-group">
-      <input type="text" class="form-control" name: "cltPhone" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Ваш телефон">
-    </div>
-    <div class="input-group input-group-lg form-group">
-      <input type="text" class="form-control" name: "cltlink" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Ссылка на фотографии или каталог">
-    </div>
-    <div class="input-group input-group-lg form-group">
-      <input type="text" class="form-control" name: "cost" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Укажите стоимость вашей заявки на обработку">
-    </div>
-    <div class="form-group">
-      <p>Если вам необходимо загрузить файл (например пресет или экшн), загрузите его тут!</p>
-      <button style="color: white" type="button" class="btn-lg btn-warning">Загрузить файлы</button>
-    </div>
-    <div class="form-group">
-      <textarea class="form-control" name = "cltComments" id="exampleFormControlTextarea1" rows="7"
-        placeholder="Если у вас есть комментарии, оставьте их здесь"></textarea>
-    </div>
-   
-      {{#if error}}
-      <div>{{error}}</div>
-      {{/if}}
-    
-    <div class="t-form__submit">
-      <button type = "submit" style="color: white" type="button" class="btn-warning btn-lg btn-block">Отправить >>></button>
-    </div>
-    <div class="t698__form-bottom-text t-text t-text_xs" field="text">Нажимая на кнопку, вы даете согласие на обработку
-      персональных данных и <br />соглашаетесь c <a href="https://plsretouch.me/privacy-policy">политикой
-        конфиденциальности</a>
-    </div>
+<div>
+  <h2 style="color: white">Заявка на обработку фотографий</h2>
 </div>
+<form action="/orders" method="POST" enctype="multipart/form-data">
+  <div class="input-group input-group-lg rounded-lg form-group">
+    <input type="text" class="form-control rounded-lg" name="cltName" aria-label="Large"
+      aria-describedby="inputGroup-sizing-sm" placeholder="Ваше Имя и Фамилия">
+  </div>
+  <div class="input-group input-group-lg form-group">
+    <input type="email" class="form-control" name="cltEmail" aria-label="Large" aria-describedby="inputGroup-sizing-sm"
+      placeholder="Ваш e-mail">
+  </div>
+  <div class="input-group input-group-lg form-group">
+    <input type="text" class="form-control" name="cltPhone" aria-label="Large" aria-describedby="inputGroup-sizing-sm"
+      placeholder="Ваш телефон">
+  </div>
+  <div class="input-group input-group-lg form-group">
+    <input type="text" class="form-control" name="cltlink" aria-label="Large" aria-describedby="inputGroup-sizing-sm"
+      placeholder="Ссылка на фотографии или каталог">
+  </div>
+  <div class="input-group input-group-lg form-group">
+    <input type="text" class="form-control" name="cost" aria-label="Large" aria-describedby="inputGroup-sizing-sm"
+      placeholder="Укажите стоимость вашей заявки на обработку">
+  </div>
+  <p>Если вам необходимо загрузить файл (например пресет или экшн), загрузите его тут!</p>
+  <div class="form-file"><input type="file" name="file"></div>
+  <div class="form-group">
+    <textarea class="form-control" name="cltComments" id="exampleFormControlTextarea1" rows="7"
+      placeholder="Если у вас есть комментарии, оставьте их здесь"></textarea>
+  </div>
+
+  {{#if error}}
+  <div>{{error}}</div>
+  {{/if}}
+
+  <div class="t-form__submit">
+    <button type="submit" style="color: white" type="button" class="btn-warning btn-lg btn-block">Отправить >>></button>
+  </div>
+  <div class="t698__form-bottom-text t-text t-text_xs" field="text">Нажимая на кнопку, вы даете согласие на обработку
+    персональных данных и <br />соглашаетесь c <a href="https://plsretouch.me/privacy-policy">политикой
+      конфиденциальности</a>
+  </div>
+  </div>
 
 </form>

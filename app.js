@@ -1,57 +1,61 @@
-const createError = require('http-errors');
-const express = require('express');
-const path = require('path');
-const cookieParser = require('cookie-parser');
-const logger = require('morgan');
-const session = require('express-session');
-const MongoStore = require('connect-mongo')(session);
-const mongoose = require('mongoose');
-const methodOverride = require('method-override');
+const createError = require("http-errors");
+const express = require("express");
+const path = require("path");
+const multer = require("multer");
+const cookieParser = require("cookie-parser");
+const logger = require("morgan");
+const session = require("express-session");
+const MongoStore = require("connect-mongo")(session);
+const mongoose = require("mongoose");
+const methodOverride = require("method-override");
 
-const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
-const tasksRouter = require('./routes/tasks');
+const indexRouter = require("./routes/index");
+const usersRouter = require("./routes/users");
+const tasksRouter = require("./routes/tasks");
 // const notifRouter = require('./routes/notif');
-const orderRouter = require('./routes/orders');
+const orderRouter = require("./routes/orders");
 
-mongoose.connect('mongodb://localhost:27017/retouchme', {
-  useNewUrlParser: true,
+const upload = multer({ dest: "uploads/" });
+
+mongoose.connect("mongodb://localhost:27017/retouchme", {
+  useNewUrlParser: true
 });
 
 const app = express();
 
-app.use(methodOverride('_method'));
+app.use(methodOverride("_method"));
 
 app.use(
   session({
     store: new MongoStore({
-      url: 'mongodb://localhost:27017/retouchme',
-      stringify: false,
+      url: "mongodb://localhost:27017/retouchme",
+      stringify: false
     }),
     cookie: {
-      maxAge: 24 * 360000,
+      maxAge: 24 * 360000
     },
-    secret: 'aws-01-d',
+    secret: "aws-01-d",
     resave: true,
-    saveUninitialized: false,
-  }),
+    saveUninitialized: false
+  })
 );
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'hbs');
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "hbs");
 
-app.use(logger('dev'));
+app.use(logger("dev"));
 app.use(express.json());
+app.use("/uploads/", express.static("uploads"));
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, "public")));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/tasks', tasksRouter);
+app.use("/", indexRouter);
+app.use("/users", usersRouter);
+app.use("/tasks", tasksRouter);
 // app.use('/notif', notifRouter);
-app.use('/orders', orderRouter);
+app.use("/orders", orderRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
@@ -62,11 +66,11 @@ app.use((req, res, next) => {
 app.use((err, req, res, next) => {
   // set locals, only providing error in development
   res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+  res.locals.error = req.app.get("env") === "development" ? err : {};
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.render("error");
 });
 
 module.exports = app;
