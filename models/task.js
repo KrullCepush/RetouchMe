@@ -24,7 +24,7 @@ const taskSchema = new mongoose.Schema({
   cost: Number,
   cltlink: String,
   rtchLink: String,
-  cltFiles: [],
+  cltFiles: String,
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },
 });

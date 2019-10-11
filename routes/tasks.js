@@ -1,11 +1,20 @@
 const express = require("express");
+const Httpsproxyagent = require("https-proxy-agent");
 
 const router = express.Router();
-
+const Telegraf = require("telegraf");
 const { sessionChecker, isAdmin } = require("../middleware/auth");
 
 const Task = require("../models/task");
 const User = require("../models/user");
+
+const bot = new Telegraf("878779383:AAEQ6ZT6Xmw7BZPo89yO-bLBmHFAIgGq5ac", {
+  telegram: {
+    agent: new Httpsproxyagent("http://167.71.59.12:3128")
+  }
+});
+
+bot.start(ctx => ctx.reply("Welcome"));
 
 router
   .route("/")
@@ -39,9 +48,14 @@ router
         cltComments: req.body.cltComments,
         amount: req.body.amount,
         cost: req.body.cost,
-        cltlink: req.body.cltlink
+        cltLink: req.body.cltlink,
+        cltFile: req.file.path
       });
       await task.save();
+      bot.telegram.sendMessage(
+        347672329,
+        `Новая заявка: http://plsretouch.me/tasks/${task.id}, стоимость: ${task.cost}`
+      );
       res.redirect("/orders");
     } catch (error) {
       res.render("orders/orderForm", {

@@ -1,9 +1,37 @@
-{{#if openTasks}}
+{{#if unapprovedTasks}}
 {{#if user.admin}}
-<h2 class="dashboard-header__header">Новые заявки</h2>
-{{#each unapprovedTasks}}
-здесь стили для задач, которые не прошли одобрение админа
-{{/each}}
+
+{{#if unapprovedTasks }}
+<div class="wrap-dashboard">
+    <div class="dashboard-header">
+        <h2 class="dashboard-header__header">
+            Новые заявки
+        </h2>
+    </div>
+    {{#each unapprovedTasks}}
+    <div class="dashboard-contant">
+        <div class="dashboard-contant__header py-2">
+            <a class="" href="/tasks/{{this.id}}">
+                {{this.cltComments}}
+            </a>
+        </div>
+        <div class="row mb-3">
+            <div class="col-6 dashboard-contant__price">
+                price: <span id="deshboard-price">{{this.cost}}</span>
+            </div>
+            <div class="col-6 dashboard-contant__photos">
+                photos: <span>{{this.amount}}</span>
+            </div>
+        </div>
+        <div class="dashboard-contant__desc mb-3">
+            {{this.info}}
+        </div>
+        <div class="dashboard-contant__date">date: <span>{{this.createdAt}}</span></div>
+    </div>
+    {{/each}}
+</div>
+{{/if}}
+
 {{/if}}
 {{/if}}
 
